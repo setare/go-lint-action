@@ -8,3 +8,4 @@ runs:
       shell: bash
     - name: Run lint
       run: golangci-lint run
+      shell: bash
