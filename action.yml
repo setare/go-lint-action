@@ -4,13 +4,7 @@ runs:
   using: "composite"
   steps:
     - name: Install golangci-lint
-      env:
-        VERSION: 1.41.1
-      run: |
-        curl https://github.com/golangci/golangci-lint/releases/download/v${VERSION}/golangci-lint-${VERSION}-linux-amd64.tar.gz -o golangci-lint-${VERSION}-linux-amd64.tar.gz
-        tar xvzf golangci-lint-${VERSION}-linux-amd64.tar.gz
-        mv golangci-lint-${VERSION}-linux-amd64/golangci-lint golangci-lint
+      run: go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.41.1
       shell: bash
     - name: Run lint
-      run: ./golangci-lint run
-      shell: bash
+      run: golangci-lint run
